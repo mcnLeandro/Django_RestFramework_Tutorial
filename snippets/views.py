@@ -14,7 +14,7 @@ def api_root(request, format=None):
         'snippets', reverse('snippet-list',request=request, format=format),
     })
 
-class SnippetList(viewsets.ModelViewSet):
+class SnippetViewSet(viewsets.ModelViewSet):
     queryset = Snippet.objects.all()
     serializer_class = SnippetSerializer
     permission_classes = [ permissions.IsAuthenticatedOrReadOnly, IsOwnerOrReadOnly]
